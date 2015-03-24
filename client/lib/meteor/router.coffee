@@ -5,8 +5,6 @@ Router.configure
     langCodeForDefaultLanguage: false
     languages: Meteor.settings.public.langs
     autoConfLanguage: true
-    exclude:
-      admin: '\/admin'
 
 Router.before ->
   language = do Router.getLanguage
