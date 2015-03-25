@@ -1,5 +1,363 @@
 @import 'client/scss/all';
 
-.jumbotron {
-  @include transform(translateY(100px));
+
+.slogan-box{
+   width: 100%;
+   height: rem(760);
+   padding: rem(150);
+   background: url("/img/slogan-bg.png");
+   background-size: cover;
+   text-align: center;
+   margin-top: -15px;
+   color: #fff;
+   position: relative;
+   z-index: 9;
+
+   h2{
+     font-size: 24px;
+     margin-top: 20px;
+     line-height: 30px;
+
+     &:after{
+       content: "";
+       display: block;
+       width: 100px;
+       border-bottom: 3px solid #fff;
+       margin: 30px auto;
+      }
+  }
+
+  h1{
+    font-size: 36px;
+    font-weight: 500;
+    text-shadow: 1px 2px 5px rgba(0, 1, 1, 0.25);
+  }
+
+  button{
+    @extend .round;
+    margin-left: -30px;
+    bottom: 5%;
+    left: 50%;
+  }
+ }
+
+ .small-header{
+   background: $bg-color;
+   width: 100%;
+   height: 70px;
+
+   .navigation{
+     width: 20%;
+     height: 100%;
+     background-image: url("/img/logo.png");
+     background-repeat: no-repeat;
+     background-position: 90% 50%;
+     padding: 10px;
+     border-right: 1px solid rgba(255, 255, 255, 0.4);;
+     float: left;
+     padding-left: 30px;
+
+     .menu{
+       @include vertical-align;
+       width: 40px;
+        height: 40px;
+        background: url("/img/menu-button.svg") no-repeat;
+        background-position: center;
+        background-size: cover;
+     }
+   }
+
+   .page-title{
+     width: 80%;
+     height: 100%;
+     color: #fff;
+     float: left;
+    padding: 0 6% 0 2%;
+
+     h3{
+       @include vertical-align;
+       float: left;
+        font-weight: 500;
+        font-size: larger;
+     }
+
+     .call-us{
+    height: 80%;
+
+     }
+    .call-icon{
+      background-position: 50% 50%;
+    }
+
+    .number{
+      top: 50%;
+        transform: translateY(-50%);
+    }
+   }
+ }
+
+ .assortment{
+   width: 100%;
+   background-image: url("/img/assortment-bg.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   padding: 80px 14%;
+   position: relative;
+
+   .column{
+     width: 31%;
+     float: left;
+     margin-right: 2.3%;
+
+     &:last-child{
+       margin-right: 0;/* nothing happened???*/
+     }
+
+    .card{
+       width: 100%;
+       height: 315px;
+       margin-bottom: 20px;
+       border-radius: 15px;
+       overflow: hidden;
+       position: relative;
+     }
+
+      .big-card{
+       width: 100%;
+       height: 650px;
+       border-radius: 15px;
+       overflow: hidden;
+       position: relative;
+
+       .card-photo{
+         height:510px;
+         background-image: url("/img/card5.png");
+       }
+     }
+
+     .card-photo{
+       width:100%;
+       height: 215px;
+       background-image: url("/img/card1.png");
+       background-repeat: no-repeat;
+       background-size: cover;
+       background-position: center;
+     }
+
+     .card-photo1{
+       @extend .card-photo;
+       background-image: url("/img/card1.png");
+     }
+
+     .card-photo2{
+       @extend .card-photo;
+       background-image: url("/img/card2.png");
+     }
+
+     .card-photo3{
+       @extend .card-photo;
+       background-image: url("/img/card3.png");
+     }
+
+     .card-photo4{
+       @extend .card-photo;
+       background-image: url("/img/card4.png");
+     }
+
+     .description{
+       width: 100%;
+       background: #eaebed;
+       padding: 20px;
+       position: absolute;
+       bottom: 0;
+
+       h4{
+         color: #29562a;
+         font-size: 18px;
+        font-weight: 500;
+        text-align: left;
+        margin-bottom: 15px;
+        width: 80%;
+       }
+
+       p{
+         color: #666;
+         font-size: 12px;
+         width: 80%;
+         line-height: 15px;
+       }
+
+       .read{
+         position: absolute;
+         width:55px;
+         height: 55px;
+         border-radius: 55px 0 0;
+         background: url("/img/read.svg") no-repeat 60% 60%, #f6a61d;
+         bottom: 0;
+         right: 0;
+       }
+     }
+
+     .description1{
+       @extend .description;
+
+       &:hover{
+         height: 200px;
+       transition: 3s;
+       }
+
+       &:hover .read1{
+         visibility: visible;
+         width: 100%;
+         border-radius: 0 0 15px 15px;
+         background: none;
+         background-color: #f6a61d;
+         color: #f6f6f6;
+         font-size: 1.375em;
+          font-weight: 500;
+          text-align: center;
+          text-shadow: 1px 2px 7px rgba(0, 1, 1, 0.35);
+          box-shadow: 4px 7px 15px 0px rgba(0, 1, 1, 0.2);
+       }
+
+       .read1{
+         @extend .read;
+         visibility: hidden;
+       }
+     }
+   }
+
+  button{
+    @extend .round;
+    bottom: 100px;
+
+  }
+ }
+
+ .team{
+    width: 100%;
+   background-image: url("/img/assortment-bg.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   padding: 80px 14%;
+   position: relative;
+
+   .previous{
+     position: absolute;
+      background-color: #fff;
+      width: 55px;
+      height: 100px;
+      border-radius: 50px 0 0 50px;
+      box-shadow: 2px 4px 10px 0px rgba(0, 1, 1, 0.35);
+      background-image: url("/img/left.svg");
+      background-repeat: no-repeat;
+      background-position: 60% 50%;
+      left: -55px;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+   .next{
+     position: absolute;
+      background-color: #fff;
+      width: 55px;
+      height: 100px;
+     border-radius: 0px 50px 50px 0px;
+     box-shadow: 2px 4px 10px 0px rgba(0, 1, 1, 0.35);
+      background-image:url("/img/right.svg");
+      background-repeat: no-repeat;
+      background-position: 40% 50%;
+      right: -55px;
+      top: 50%;
+      transform: translateY(-50%);
+   }
+
+
+   .worker{
+     width: 31%;
+     height: 380px;
+     float: left;
+     margin-right: 2.3%;
+     border-radius: 15px;
+     background: #a9c855;
+     text-align: center;
+     position: relative;
+     margin-bottom: 20px;
+
+     &:last-child{
+       margin-right: 0;
+     }
+
+
+     .worker-photo{
+       width: 100%;
+       height: 280px;
+       padding:10% 20%;
+       border-radius: 15px 15px 0 0;
+
+       img{
+         width: 100%;
+       }
+     }
+
+     .description{
+       width: 100%;
+       height: 100px;
+       border-radius: 0 0 15px 15px;
+       background: #efefef;
+       position: absolute;
+       padding: 20px;
+       text-align: left;
+       bottom: 0;
+       transition: 0.3s;
+
+       p + p{
+         visibility: hidden;
+         transition: 0.3s ease;
+         line-height: 25px;
+       }
+
+       &:hover{
+         height: 150px;
+
+         p + p{
+           visibility: visible;
+         }
+       }
+
+
+       h4{
+         color: #29562a;
+         font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 15px;
+        width: 80%;
+       }
+
+       p{
+         color: #666;
+         font-size: 12px;
+         width: 80%;
+         line-height: 15px;
+       }
+
+       .read{
+         position: absolute;
+         width:55px;
+         height: 55px;
+         border-radius: 55px 0 15px;
+         background: url("/img/read.svg") no-repeat 60% 60%, #f6a61d;
+         bottom: 0;
+         right: 0;
+       }
+     }
+   }
+
+  .round{
+    position: relative;
+    left: 50%;
+    margin-left:-30px;
+    margin-top: 75px;
+
+  }
 }
