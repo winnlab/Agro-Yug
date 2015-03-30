@@ -1,4 +1,9 @@
 {
+  "admin": {
+    "username": "admin",
+    "email": "admin@admin.com",
+    "pwd": "111111"
+  },
   "public": {
     "lng": "ru",
     "langs": [ "ru", "en" ]
