@@ -1,0 +1,15 @@
+<template name="products">
+  <div class="history-header">
+    <h3>{{category.name}}</h3>
+  </div>
+  {{#if $eq category.type 'pdf'}}
+    {{> productsPdf}}
+  {{/if}}
+  {{#if $eq category.type 'text'}}
+    {{> productsText}}
+  {{/if}}
+
+  {{#contentFor 'menu-title'}}
+    {{category.name}}
+  {{/contentFor}}
+</template>

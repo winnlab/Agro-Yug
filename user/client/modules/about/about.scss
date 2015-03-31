@@ -1,0 +1,89 @@
+@import 'client/scss/all';
+
+.history{
+  width: 100%;
+  margin-bottom: -40px;
+
+  .content1 {
+    @include size(100% rem(638));
+    background-image: url("/img/history-content-bg.png");
+    background-size: cover;
+    background-position: center bottom;
+    padding: 5% 12% 5% 15%;
+    position: relative;
+    z-index: 8;
+
+    .slogan {
+      float: left;
+      width: 48%;
+
+      p {
+        width: 100%;
+        margin-bottom: rem(24);
+      }
+    }
+
+    .contact-map {
+      @include size(52% rem(480));
+      padding: 4% 0 0;
+      overflow: hidden;
+      float: right;
+
+      object {
+        width: 156%;
+      }
+    }
+  }
+
+  .content2 {
+    @include size(100% rem(824));
+    margin-top: rem(-45);
+    background-image: url("/img/history-content-bg2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding: 5% 15%;
+    position: relative;
+    z-index: 7;
+
+    p {
+      float: left;
+      margin: 0 0 rem(24) 4%;
+    }
+
+    .photo-box {
+      @include size(45% rem(458));
+      margin-top: rem(48);
+      float: left;
+      position: relative;
+
+      &:before {
+        @include position(absolute, rem(-28) null null rem(-112));
+        @include size(118%);
+        content: '';
+        display: block;
+        z-index: -1;
+        background-image: url('/img/rounds.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  p {
+    color: #fff;
+    font-size: rem(22);
+    font-weight: 400;
+    line-height: 1.2em;
+    text-align: left;
+    width: 50%;
+  }
+
+  a.orange {
+    bottom: 13%;
+  }
+}

@@ -1,0 +1,11 @@
+<template name="categoryColumns">
+  {{#each columns}}
+    <div class="column{{#if $eq this 2}} big{{/if}}">
+      {{#each $mapped categories}}
+        {{#if inColumn $index ..}}
+          {{> productCard}}
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/each}}
+</template>

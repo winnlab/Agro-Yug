@@ -1,0 +1,63 @@
+@import 'client/scss/all';
+
+.contacts {
+  width: 100%;
+  position: relative;
+  padding: 5rem 14%;
+  color: #ffffff;
+  background-image: url("/img/assortment-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: left;
+
+  h2 {
+    font-size: 1.875em;
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: rem(34);
+    font-size: 1.25em;
+    font-weight: 400;
+  }
+
+  .icon {
+    @include size(10% rem(170));
+    float: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .essence {
+    width: 90%;
+    padding: 0 rem(34);
+    float: left;
+  }
+
+  .location {
+    float: left;
+    width: 45%;
+
+    .icon {
+      background-image: url("/img/message.svg");
+    }
+  }
+
+  .contact-phone {
+    float: right;
+    width: 45%;
+
+    .icon {
+      background-image: url("/img/receiver.svg");
+    }
+  }
+
+  .e-mail {
+    margin-top: 50px;
+    width: 45%;
+
+    .icon {
+      background-image: url("/img/global.svg");
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<template name="main">
+  <div class="slogan-box j-screen" data-title="Агро-Юг">
+    <img src="/img/slogan-logo.png">
+    <h2>крупнейший поставщик пестицидов<br> и удобрений на Юге Казахстана</h2>
+    <h1>Качество Вашего урожая в наших руках!</h1>
+    <button class="round j-next"></button>
+  </div>
+
+  <div class="assortment j-screen" data-title="НАШ АССОРТИМЕНТ">
+    {{> categoryColumns}}
+    <button class="round next-screen j-next"></button>
+    <div class="clr"></div>
+  </div>
+
+
+  <div class="map j-screen" data-title='ГЕОГРАФИЧЕСКАЯ ПРЕДСТАВЛЕННОСТЬ "АГРО-ЮГ"'>
+    <h3 class="title">Казахстан</h3>
+    <object data="/img/map.svg" type="image/svg+xml"></object>
+    <buttom class="round j-next"></buttom>
+  </div>
+
+  <div class="team j-screen" data-title="НАШИ СОТРУДНИКИ">
+    <div class="team-carousel-wrap">
+      <div class="team-carousel">
+        {{#each workers}}
+          {{> workerCard}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="clr"></div>
+    <button class="round j-next"></button>
+  </div>
+
+  {{#contentFor 'menu-title'}}
+    <span id="mp-menu-title">Агро-Юг</span>
+  {{/contentFor}}
+
+</template>

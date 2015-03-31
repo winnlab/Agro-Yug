@@ -1,0 +1,28 @@
+{
+  "categories": {
+    "title": "categories",
+    "position": "Position",
+    "name": "Name",
+    "description": "Descriptions",
+    "actions": {
+      "add": "Add category",
+      "add-sub": "Add subcategory",
+      "edit": "Edit",
+      "remove": "Remove",
+      "product": "Add product"
+    },
+    "no_categories": "None subcategories added yet",
+    "no_categories_plural_0": "None categories added yet"
+  },
+  "products": {
+    "title": "Products",
+    "position": "Position",
+    "name": "Name",
+    "img": "Is img set",
+    "pdf": "Is pdf added",
+    "actions": {
+      "edit": "Edit",
+      "remove": "Remove"
+    }
+  }
+}

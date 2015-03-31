@@ -1,0 +1,15 @@
+<template name="productsPdf">
+  <div class="assortment">
+    {{#each categories}}
+      <div class="column">
+        {{> productCard}}
+      </div>
+    {{/each}}
+    {{#each productList}}
+      <div class="column">
+        {{> productCard}}
+      </div>
+    {{/each}}
+    <div class="clr"></div>
+  </div>
+</template>

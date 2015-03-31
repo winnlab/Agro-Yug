@@ -1,0 +1,108 @@
+@import 'all';
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+@include media-min-width-remmer(1, 10);
+@include media-min-width-remmer(1056, 11);
+@include media-min-width-remmer(1152, 12);
+@include media-min-width-remmer(1248, 13);
+@include media-min-width-remmer(1344, 14);
+@include media-min-width-remmer(1440, 15);
+@include media-min-width-remmer(1530, 16);
+@include media-min-width-remmer(1632, 17);
+@include media-min-width-remmer(1728, 18);
+@include media-min-width-remmer(1824, 19);
+@include media-min-width-remmer(1920, 20);
+@include media-min-width-remmer(2016, 21);
+@include media-min-width-remmer(2112, 22);
+@include media-min-width-remmer(2208, 23);
+@include media-min-width-remmer(2304, 24);
+@include media-min-width-remmer(2400, 25);
+@include media-min-width-remmer(2496, 26);
+@include media-min-width-remmer(2592, 27);
+
+body {
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  &.no-overflow {
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+}
+
+.clr {
+  @include clearfix;
+}
+
+button {
+  border: 1px none;
+  cursor:pointer;
+  background: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.round {
+  position: absolute;
+  @include size(60px);
+  background: url("../img/arrow-down.svg") no-repeat, #fff;
+  background-position: center;
+  box-shadow: 2px 4px 10px 0px rgba(0, 1, 1, 0.35);
+  border-radius: 30px;
+}
+
+.orange {
+  @include transform(translateX(-50%));
+  @include position(absolute, null null null 50%);
+  padding: 20px;
+  font-size: 20px;
+  background: #f6a61d;
+  color: #fff;
+  text-align: center;
+  text-shadow: 1px 2px 7px rgba(0, 1, 1, 0.35);
+  box-shadow: 4px 7px 15px 0px rgba(0, 1, 1, 0.2);
+  border-radius: 10px;
+}
+
+.wrapper{
+  width: 100%;
+  min-width: 1350px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.history-header {
+  @include size(100% 170px);
+  padding: 70px;
+  margin-bottom: -30px;
+  background: {
+    image: url("/img/history-bg3.png");
+    size: cover;
+    position: center center;
+  }
+  text-align: center;
+  position: relative;
+  z-index: 9;
+
+  h3 {
+    color: #fff;
+    font-size: 1.875em;
+    font-weight: 700;
+    text-shadow: 1px 2px 5px rgba(0, 1, 1, 0.35);
+  }
+}

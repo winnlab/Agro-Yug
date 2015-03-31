@@ -1,0 +1,15 @@
+<template name="team">
+  <div class="history-header">
+    <h3>НАША КОМАНДА</h3>
+  </div>
+  <div class="team">
+    {{#each workers}}
+      {{> workerCard}}
+    {{/each}}
+    <div class="clr"></div>
+  </div>
+
+  {{#contentFor 'menu-title'}}
+    Наша команда
+  {{/contentFor}}
+</template>

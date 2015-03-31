@@ -1,0 +1,14 @@
+<template name="assortment">
+  <div class="history-header">
+    <h3>МЫ ПРЕДЛАГАЕМ</h3>
+  </div>
+
+  <div class="assortment">
+    {{> categoryColumns}}
+    <div class="clr"></div>
+  </div>
+
+  {{#contentFor 'menu-title'}}
+    Наш ассортимент
+  {{/contentFor}}
+</template>

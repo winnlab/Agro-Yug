@@ -1,0 +1,15 @@
+systemLog:
+  destination: file
+  path: "/var/log/mongodb/agroyug.log"
+  logAppend: true
+storage:
+  dbPath: "/data/agroyug"
+  journal:
+    enabled: true
+processManagement:
+  fork: true
+net:
+  bindIp: 127.0.0.1
+  port: 13777
+replication:
+  replSetName: 'agroyug'

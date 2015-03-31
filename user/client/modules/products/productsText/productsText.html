@@ -1,0 +1,57 @@
+<template name="productsText">
+  <div class="chain">
+    <nav>
+      <a href="{{pathFor 'assortment'}}">Ассортимент /</a>
+      <a href="{{pathFor 'products' _id=category._id}}">{{category.name}} / </a>
+      {{#with activeCategory}}
+        <a href="{{pathFor 'products' _id=../category._id}}" class="j-link">{{activeCategory.name}}</a>
+      {{/with}}
+    </nav>
+  </div>
+  <div class="contacts assortment">
+    <nav>
+      {{#each categories}}
+        <a class="j-link filter-link{{#if $eq _id activeCategory._id}} active{{/if}}" href="{{pathFor 'products' _id=../category._id}}">{{name}}</a>
+      {{/each}}
+    </nav>
+    <div class="fertilizer">
+      {{#if product}}
+        {{#with product}}
+          {{#if img}}
+            <div class="photo-item">
+                <img src="{{getImg img}}" alt="{{name}}">
+            </div>
+          {{/if}}
+          <div class="write-up">
+            <div class="fertilizer-description">
+              <h3>{{name}}</h3>
+              <p>{{overview}}</p>
+            </div>
+            <div class="clr"></div>
+            <div class="table-info">{{description}}</div>
+          </div>
+        {{/with}}
+      {{else}}
+        {{#each products}}
+          <div class="fertilizer-item">
+            <div class="fertilizer-photo">
+              {{#if img}}
+                <img src="{{getImg img}}" alt="">
+              {{/if}}
+            </div>
+            <div class="fertilizer-description">
+              <h3>{{name}}</h3>
+
+              <p>{{overview}}</p>
+
+              <a class="read-more">ПОДРОБНЕЕ</a>
+
+              <div class="clr"></div>
+            </div>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
+    <div class="clr"></div>
+  </div>
+</template>

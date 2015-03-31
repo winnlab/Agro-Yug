@@ -1,0 +1,64 @@
+<template name="layout">
+  <header>
+
+    <div class="call-us">
+      <div class="call-icon"></div>
+      <div class="call-text">
+        <p class="call-label">Для связи с нами:</p>
+        <span class="number">8 (727) 326 96 28</span>
+      </div>
+    </div>
+
+    <div class="full-nav">
+      <a href="{{pathFor 'main'}}" class="logo-box"></a>
+      <nav>
+        <a href="{{pathFor 'about'}}">О КОМПАНИИ</a>
+        <a href="{{pathFor 'assortment'}}">НАШ АССОРТИМЕНТ</a>
+        <a href="{{pathFor 'manufacturers'}}">ПРОИЗВОДИТЕЛЯМ</a>
+        <a href="{{pathFor 'team'}}">СОТРУДНИКИ</a>
+        <a href="{{pathFor 'contacts'}}">КОНТАКТЫ</a>
+      </nav>
+    </div>
+
+    <div class="btn-nav">
+      <div class="navigation">
+        <button class="menu"></button>
+      </div>
+      <div class="page-title">
+        <h3>{{> yield 'menu-title'}}</h3>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    {{> yield}}
+  </main>
+
+  <div class="offer j-screen" data-title="ПРОИЗВОДИТЕЛЯМ">
+    <h5>
+      Если вас давно интересует распространение сельскохозяйственной продукции
+      на рынке Казахстана, и Вы не знаете, как на него выйти правильно и быстро,
+      присылайте Ваши предложения и заявки на почту
+    </h5>
+
+    <button class="leave-offer orange">ОСТАВИТЬ ПРЕДЛОЖЕНИЕ</button>
+  </div>
+  <div class="contact-us">
+    <h6>
+      Для связи с нами:
+      <br>
+      <span>8 (727) 326 96 28</span>
+    </h6>
+  </div>
+  <footer>
+    <nav>
+      <a href="{{pathFor 'about'}}">О компании</a>
+      <a href="{{pathFor 'assortment'}}">Товары</a>
+      <a href="{{pathFor 'manufacturers'}}">Производители</a>
+      <a href="{{pathFor 'team'}}">Сотрудники</a>
+      <a href="{{pathFor 'reviews'}}">Отзывы</a>
+      <a href="{{pathFor 'contacts'}}">Контакты</a>
+    </nav>
+  </footer>
+</template>
