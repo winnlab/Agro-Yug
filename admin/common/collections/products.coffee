@@ -9,10 +9,7 @@ Products.attachI18nSchema
     regEx: SimpleSchema.RegEx.Id
     autoform:
       type: 'select'
-      options: Categories.sortByLvl
-  position:
-    type: Number
-    label: 'Позиция'
+      options: -> Categories.sortByLvl true
   name:
     type: String
     label: 'Название'
@@ -25,7 +22,9 @@ Products.attachI18nSchema
     i18n: true
     autoform:
       afFieldInput:
-        type: 'textarea'
+        type: 'summernote',
+        class: 'editor'
+        height: 200
   description:
     type: String
     optional: true
@@ -33,7 +32,9 @@ Products.attachI18nSchema
     i18n: true
     autoform:
       afFieldInput:
-        type: 'textarea'
+        type: 'summernote',
+        class: 'editor'
+        height: 200
   img:
     label: 'Изображение'
     type: String
@@ -49,6 +50,10 @@ Products.attachI18nSchema
       afFieldInput:
         type: 'fileUpload'
         collection: 'ProductPdf'
+  position:
+    type: Number
+    label: 'Позиция'
+    autoValue: collectionAutoPosition Products
 
 @ProductImg = new FS.Collection 'productImg', Schemas.ProductImg
 

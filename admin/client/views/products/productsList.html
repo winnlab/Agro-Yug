@@ -6,30 +6,34 @@
   <table class="table">
     <thead>
       <tr>
-        <td>{{_ 'products.position'}}</td>
+        <td class="text-center" style="width: 100px;">{{_ 'products.position'}}</td>
         <td>{{_ 'products.name'}}</td>
-        <td>{{_ 'products.img'}}</td>
-        <td>{{_ 'products.pdf'}}</td>
-        <td>{{_ 'products.actions.edit'}}</td>
-        <td>{{_ 'products.actions.remove'}}</td>
+        <td class="text-center">{{_ 'products.img'}}</td>
+        {{#if $eq category.type 'pdf'}}
+          <td class="text-center">{{_ 'products.pdf'}}</td>
+        {{/if}}
+        <td class="text-center" style="width: 100px;">{{_ 'products.actions.edit'}}</td>
+        <td class="text-center" style="width: 100px;">{{_ 'products.actions.remove'}}</td>
       </tr>
     </thead>
     <tbody>
       {{#each products}}
         <tr>
-          <td>{{position}}</td>
+          <td class="text-center">{{position}}</td>
           <td>{{name}}</td>
-          <td>
+          <td class="text-center">
             {{#if img}}
               <i class="fa fa-check"></i>
             {{/if}}
           </td>
-          <td>
-            {{#if pdf}}
-              <i class="fa fa-check"></i>
-            {{/if}}
-          </td>
-          <td>
+          {{#if $eq ../category.type 'pdf'}}
+            <td class="text-center">
+              {{#if pdf}}
+                <i class="fa fa-check"></i>
+              {{/if}}
+            </td>
+          {{/if}}
+          <td class="text-center">
             <a href="{{pathFor 'adminProductsEdit' productId=_id}}" class="hidden-xs btn btn-xs btn-primary">
               <i class="fa fa-pencil"></i>
             </a>
@@ -38,7 +42,7 @@
               {{_ 'products.actions.edit'}}
             </a>
           </td>
-          <td>
+          <td  class="text-center">
             <a data-toggle="modal" data-collection="Products" doc="{{_id}}" href="#admin-delete-modal" class="hidden-xs btn btn-xs btn-danger btn-delete">
               <i class="fa fa-times" doc="{{_id}}"></i>
             </a>

@@ -1,15 +1,17 @@
 <template name="adminCategoriesList">
   <div class="categories-list-actions">
-    {{#with _id=currentId}}
-      <a class="btn btn-primary" href="{{pathFor 'adminCategoriesNew'}}">
-        <i class="fa fa-sitemap"></i>
-        {{#if _id}}
-          {{_ 'categories.actions.add-sub'}}
-        {{else}}
-          {{_ 'categories.actions.add'}}
-        {{/if}}
-      </a>
-    {{/with}}
+    {{#if showCategories}}
+      {{#with _id=currentId}}
+        <a class="btn btn-primary" href="{{pathFor 'adminCategoriesNew'}}">
+          <i class="fa fa-sitemap"></i>
+          {{#if _id}}
+            {{_ 'categories.actions.add-sub'}}
+          {{else}}
+            {{_ 'categories.actions.add'}}
+          {{/if}}
+        </a>
+      {{/with}}
+    {{/if}}
     {{#if currentId}}
       <a class="btn btn-warning" href="{{pathFor 'adminProductsNew' _id=currentId}}">
         <i class="fa fa-list"></i>
@@ -19,66 +21,68 @@
   </div>
   <div class="box categories-list">
     <div class="box-header"></div>
-    {{#if isCategoriesList}}
-      <div class="box-body">
-        <h3>{{_ 'categories.title'}}:</h3>
-      </div>
-      <table class="table">
-        <thead>
-          <tr>
-            <td>{{_ 'categories.position'}}</td>
-            <td>{{_ 'categories.name'}}</td>
-            <td>{{_ 'categories.description'}}</td>
-            <td>{{_ 'categories.actions.product'}}</td>
-            <td>{{_ 'categories.actions.edit'}}</td>
-            <td>{{_ 'categories.actions.remove'}}</td>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each categories}}
-            {{#if $neq _id ../currentId}}
-              <tr>
-                <td>{{position}}</td>
-                <td><a href="/admin/mode/categories/{{_id}}">{{name}}</a></td>
-                <td>{{description}}</td>
-                <td>
-                  <a class="btn btn-xs btn-info" href="{{pathFor 'adminProductsNew'}}">
-                    <i class="fa fa-file-text-o"></i>
-                  </a>
-                </td>
-                <td>
-                  <a href="{{pathFor 'adminCategoriesEdit' categoryId=_id}}" class="hidden-xs btn btn-xs btn-primary">
-                    <i class="fa fa-pencil"></i>
-                  </a>
-                  <a href="{{pathFor 'adminCategoriesEdit' categoryId=_id}}" class="visible-xs btn btn-sm btn-primary">
-                    <i class="fa fa-pencil"></i>
-                    {{_ 'categories.actions.edit'}}
-                  </a>
-                </td>
-                <td>
-                  <a data-toggle="modal" data-collection="Categories" doc="{{_id}}" href="#admin-delete-modal" class="hidden-xs btn btn-xs btn-danger btn-delete">
-                    <i class="fa fa-times" doc="{{_id}}"></i>
-                  </a>
-                  <a data-toggle="modal" data-collection="Categories" doc="{{_id}}" href="#admin-delete-modal" class="visible-xs btn btn-sm btn-danger btn-delete">
-                    <i class="fa fa-times" doc="{{_id}}"></i>
-                    {{_ 'categories.actions.remove'}}
-                  </a>
-                </td>
-              </tr>
-            {{/if}}
-          {{/each}}
-        </tbody>
-      </table>
-    {{else}}
-      <div class="alert alert-info">
-        <p>
-          {{_ 'categories.no_categories' count=categories.count}}
-          <a class="btn btn-sm btn-primary" href="{{pathFor 'adminCategoriesNew'}}">
-            <i class="fa fa-sitemap"></i>
-              {{_ 'categories.actions.add-sub'}}
-          </a>
-        </p>
-      </div>
+    {{#if showCategories}}
+      {{#if isCategoriesList}}
+        <div class="box-body">
+          <h3>{{_ 'categories.title'}}:</h3>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <td class="text-center" style="width: 100px;">{{_ 'categories.position'}}</td>
+              <td>{{_ 'categories.name'}}</td>
+              <td class="text-center" style="width: 150px;">{{_ 'categories.type'}}</td>
+              <td class="text-center" style="width: 100px;">{{_ 'categories.actions.edit'}}</td>
+              <td class="text-center" style="width: 100px;">{{_ 'categories.actions.remove'}}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each categories}}
+              {{#if $neq _id ../currentId}}
+                <tr>
+                  <td class="text-center">{{position}}</td>
+                  <td><a href="/admin/mode/categories/{{_id}}">{{name}}</a></td>
+                  <td class="text-center">
+                    {{#if $eq type 'pdf'}}
+                      <span class="label label-primary">pdf</span>
+                    {{else}}
+                      <span class="label label-success">профиль</span>
+                    {{/if}}
+                  </td>
+                  <td class="text-center">
+                    <a href="{{pathFor 'adminCategoriesEdit' categoryId=_id}}" class="hidden-xs btn btn-xs btn-primary">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+                    <a href="{{pathFor 'adminCategoriesEdit' categoryId=_id}}" class="visible-xs btn btn-sm btn-primary">
+                      <i class="fa fa-pencil"></i>
+                      {{_ 'categories.actions.edit'}}
+                    </a>
+                  </td>
+                  <td class="text-center">
+                    <a data-toggle="modal" data-collection="Categories" doc="{{_id}}" href="#admin-delete-modal" class="hidden-xs btn btn-xs btn-danger btn-delete">
+                      <i class="fa fa-times" doc="{{_id}}"></i>
+                    </a>
+                    <a data-toggle="modal" data-collection="Categories" doc="{{_id}}" href="#admin-delete-modal" class="visible-xs btn btn-sm btn-danger btn-delete">
+                      <i class="fa fa-times" doc="{{_id}}"></i>
+                      {{_ 'categories.actions.remove'}}
+                    </a>
+                  </td>
+                </tr>
+              {{/if}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <div class="alert alert-info">
+          <p>
+            {{_ 'categories.no_categories' count=categories.count}}
+            <a class="btn btn-sm btn-primary" href="{{pathFor 'adminCategoriesNew' _id=currentId}}">
+              <i class="fa fa-sitemap"></i>
+                {{_ 'categories.actions.add-sub'}}
+            </a>
+          </p>
+        </div>
+      {{/if}}
     {{/if}}
 
     {{#if currentId}}

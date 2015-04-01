@@ -16,7 +16,7 @@ insertStaff = ->
   ]
 
   _.each staff, (person, i) ->
-    person.position =  staff.length - 1
+    person.position =  staff.length - i
     person.info = '<p>Должность: директор</p><p>Опыт работы: 6 лет.</p><p>Email: email@email.com</p>'
 
     if person.photo

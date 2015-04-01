@@ -4,6 +4,7 @@
     "position": "Position",
     "name": "Name",
     "description": "Descriptions",
+    "type": "Type",
     "actions": {
       "add": "Add category",
       "add-sub": "Add subcategory",

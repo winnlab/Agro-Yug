@@ -6,6 +6,7 @@
     category = adminProducts.getType do @$('select[name="categoryId"]').val
     adminProducts.type.set category
   helpers:
+    type: -> do adminProducts.type.get
     productOmitFields: ->
       type = do adminProducts.type.get
       settings = Meteor.settings.public

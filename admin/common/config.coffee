@@ -1,22 +1,37 @@
+callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
+  unless collection is 'Categories' or collection is 'Products'
+    Router.go "/admin/#{collection}"
+  Router.go "/admin/mode/categories" +
+    if currentDoc?.categoryId then "/#{currentDoc?.categoryId}" else ""
+  return false
+
 @AdminConfig =
   name: 'Агро Юг'
   lang: Meteor.settings.public.lng
   adminEmails: [ 'admin@admin.com' ]
+  callbacks:
+    onInsert: callbackHooks
+    onUpdate: callbackHooks
   collections:
     Staff:
       icon: 'users'
       label: 'Персонал'
+      order: [[0, "desc"]]
       tableColumns: [
         { label: 'Позиция', name: 'position' }
         { label: 'Имя', name: 'firstName' }
         { label: 'Фамилия', name: 'secondName' }
       ]
-      auxCollections: [ 'StaffPhoto' ]
+      auxCollections: [
+        collection: 'Staff'
+        fields: position: 1
+      ,
+        'StaffPhoto'
+      ]
     Categories:
-      label: 'Категории'
+      label: 'Ассортимент'
       showAside: false
-      showWidget: false
-      formRedirect: '/admin/mode/categories'
+      url: '/admin/mode/categories'
       tableColumns: [
         { label: 'Позиция', name: 'position' }
         { label: 'Название', name: 'name' }
@@ -25,7 +40,9 @@
       auxCollections: [ 'Categories' ]
     Products:
       label: 'Продукты'
-      formRedirect: '/admin/mode/categories'
+      showAside: false
+      showWidget: false
+    Users:
       showAside: false
       showWidget: false
 

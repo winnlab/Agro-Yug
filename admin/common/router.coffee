@@ -1,10 +1,12 @@
+categoriesFields = { _id: 1, name: 1, categoryId: 1, position: 1, type: 1, children: 1 }
+
 Router.route 'adminCategoriesNew',
   path: AdminDashboard.path 'custom/categories/new/:_id?'
   controller: 'AdminController'
   template: 'AdminDashboardNew'
   waitOn: ->
     Meteor.subscribe 'categories', {}, {
-      fields: { _id: 1, name: 1, categoryId: 1, position: 1 }
+      fields: categoriesFields
     }
   data: ->
     admin_collection: adminCollectionObject 'Categories'
@@ -21,7 +23,7 @@ Router.route 'adminCategoriesEdit',
     [
       Meteor.subscribe 'categories', { _id: @params.categoryId }
       Meteor.subscribe 'categories', {}, {
-        fields: { _id: 1, name: 1, categoryId: 1, position: 1 }
+        fields: categoriesFields
       }
     ]
   data: ->
@@ -32,7 +34,7 @@ Router.route 'adminCategoriesEdit',
     Session.set 'admin_doc', category
     Session.set 'admin_id', @params.categoryId
     Session.set 'admin_title', 'Категория'
-    Session.set 'admin_subtitle', "Изменить #{category.name}"
+    Session.set 'admin_subtitle', "Изменить #{category?.name}"
 
 Router.route 'adminCategoriesList',
   path: AdminDashboard.path 'mode/categories/:_id?'
@@ -47,7 +49,7 @@ Router.route 'adminCategoriesList',
     [
       Meteor.subscribe 'categories', find,
         {
-          fields: { _id: 1, name: 1, position: 1, description: 1 }
+          fields: categoriesFields
         }
       Meteor.subscribe 'products', { categoryId: @params._id }, {
         fields: { name: 1, position: 1, img: 1, pdf: 1 }
@@ -55,8 +57,9 @@ Router.route 'adminCategoriesList',
     ]
   data: ->
     currentId: @params._id
-    categories: Categories.find {}, sort: { position: 1 }
-    products: do Products.find
+    category: if @params._id then Categories.findOne @params._id else null
+    categories: Categories.find {}, sort: { position: -1 }
+    products: Products.find {}, sort: { position: -1 }
   onAfterAction: ->
     title = 'Все категории'
     if @params?._id
@@ -70,7 +73,7 @@ Router.route 'adminProductsNew',
   template: 'adminProductsNew'
   waitOn: ->
     Meteor.subscribe 'categories', {}, {
-      fields: { _id: 1, name: 1, categoryId: 1, type: 1, position: 1 }
+      fields: categoriesFields
     }
   data: ->
     admin_collection: adminCollectionObject 'Products'
@@ -88,7 +91,7 @@ Router.route 'adminProductsEdit',
       Meteor.subscribe 'products', { _id: @params.productId }
     ,
       Meteor.subscribe 'categories', {}, {
-        fields: { _id: 1, name: 1, categoryId: 1, type: 1, position: 1 }
+        fields: categoriesFields
       }
     ]
   data: ->
@@ -99,4 +102,4 @@ Router.route 'adminProductsEdit',
     Session.set 'admin_doc', product
     Session.set 'admin_id', @params.productId
     Session.set 'admin_title', 'Продукт'
-    Session.set 'admin_subtitle', "Изменить #{product.name}"
+    Session.set 'admin_subtitle', "Изменить #{product?.name}"

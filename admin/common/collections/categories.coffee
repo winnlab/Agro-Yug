@@ -2,8 +2,8 @@
   base_language: Meteor.settings.public.lng
   languages: Meteor.settings.public.langs
 
-Categories.sortByLvl = ->
-  categories = Categories.find({}, sort: { position: 1 }).fetch()
+Categories.sortByLvl = (isAll = false) ->
+  categories = Categories.find({}, sort: { position: -1 }).fetch()
   result = []
   sortIt = (categories, parentId, lvl) ->
     _.find categories, (category) ->
@@ -13,7 +13,7 @@ Categories.sortByLvl = ->
         obj.label = category.name
       if parentId is category.categoryId
         obj.label = Array(lvl).join('--') + category.name
-      if obj.label
+      if obj.label and (category.children or isAll)
         obj.selected = true if Router.current().params?._id is category._id
         result.push obj
         sortIt categories, category._id, lvl + 1
@@ -29,19 +29,6 @@ Categories.attachI18nSchema
     autoform:
       type: 'select'
       options: Categories.sortByLvl
-  type:
-    type: String
-    label: 'Тип продуктов'
-    allowedValues: [ 'text', 'pdf' ]
-    autoform:
-      noselect: true
-      options: [
-        { label: "Продукты с описанием", value: "text" }
-        { label: "Продукты с pdf", value: "pdf" }
-      ]
-  position:
-    type: Number
-    label: 'Позиция'
   name:
     type: String
     label: 'Название'
@@ -53,7 +40,9 @@ Categories.attachI18nSchema
     i18n: true
     autoform:
       afFieldInput:
-        type: 'textarea'
+        type: 'summernote'
+        class: 'editor'
+        height: 150
   description:
     type: String
     label: 'Описание'
@@ -69,6 +58,23 @@ Categories.attachI18nSchema
       afFieldInput:
         type: 'fileUpload'
         collection: 'CategoryImg'
+  type:
+    type: String
+    label: 'Тип продуктов'
+    allowedValues: [ 'text', 'pdf' ]
+    autoform:
+      noselect: true
+      options: [
+        { label: "Продукты с описанием", value: "text" }
+        { label: "Продукты с pdf", value: "pdf" }
+      ]
+  children:
+    type: Boolean
+    label: 'Вложенные категории'
+  position:
+    type: Number
+    label: 'Позиция'
+    autoValue: collectionAutoPosition Categories
 
 @CategoryImg = new FS.Collection 'categoryImg', Schemas.CategoryImg
 

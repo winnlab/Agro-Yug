@@ -3,9 +3,6 @@
   languages: Meteor.settings.public.langs
 
 @Staff.attachI18nSchema
-  position:
-    type: Number
-    label: 'Позиция'
   firstName:
     type: String
     label: 'Имя'
@@ -24,6 +21,7 @@
       afFieldInput:
         type: 'summernote'
         class: 'editor'
+        height: 200
   photo:
     label: 'Фото сотрудника'
     type: String
@@ -32,6 +30,10 @@
       afFieldInput:
         type: 'fileUpload'
         collection: 'StaffPhoto'
+  position:
+    type: Number
+    label: 'Позиция'
+    autoValue: collectionAutoPosition Staff
 
 @Staff.allow
   insert: (userId) -> true
