@@ -14,7 +14,7 @@ Meteor.methods
     Email.send
       to: Meteor.settings.admin.email
       from: data.email
-      subject: "Предложение о струдничестве" + if data.company then " от #{} data.company" else ""
+      subject: "Предложение о струдничестве" + if data.company then " от #{data.company}" else ""
       html: """
         <p>Компания: #{data.company}</p>
         <p>Должность: #{data.situation}</p>

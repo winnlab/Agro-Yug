@@ -1,9 +1,9 @@
 Template.productCard.helpers
   getImage: (_id) ->
     if @type
-      do CategoryImg.findOne(_id).url
+      do CategoryImg.findOne(_id)?.url
     else
-      do ProductImg.findOne(_id).url
+      do ProductImg.findOne(_id)?.url
 
 Template.productCard.events
   'click .product-details': ->
