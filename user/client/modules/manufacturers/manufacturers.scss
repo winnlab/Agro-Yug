@@ -1,0 +1,18 @@
+@import 'client/scss/all';
+.manufacturers {
+  &.history .content2 {
+    height: auto;
+
+    .photo-box {
+      @include position(absolute, 50% null null 14%);
+      @include transform(translateY(-50%));
+      width: 33%;
+      margin-top: 0;
+    }
+
+    p {
+      margin-left: 48.5%;
+      font-size: rem(19);
+    }
+  }
+}

@@ -3,25 +3,28 @@
 
 header {
   @include transition(height 0.3s ease-in-out);
-  @include size(100% 105px);
+  @include size(100% rem(105));
   @include position(fixed, 0 null null null);
-  padding: 0 6% 0 10.5%;
+  padding: 0 5.75% 0 14.5%;
   z-index: 10;
+  background: #3d7a41;
 
-  background: {
-    image: url("/img/header-bg.svg");
-    repeat: no-repeat;
-    size: cover;
-    position: center center;
+  object {
+    @include position(absolute, 0 null null 0);
+    @include transition(visibility 0s 0.3s linear);
+    z-index: -1;
+    width: 100%;
   }
 
+
   .logo-box {
-    @include size(110px 140px);
+    @include size(rem(130) rem(156));
     background: url("/img/header-logo.png") no-repeat, #3e7b41;
     background-position: center;
     background-size: 80%;
     float: left;
     border-radius: 30px;
+    margin: 0 0 0 rem(-2);
 
     a {
       display: block;
@@ -31,8 +34,8 @@ header {
 
   nav {
     display: block;
-    padding: 34px 0 0;
-    margin: 0 3% 0 17%;
+    padding: rem(43) 0 0;
+    margin: 0 9.3% 0 21.1%;
     text-align: justify;
 
     &:after {
@@ -43,9 +46,9 @@ header {
 
     a {
       display: inline-block;
-      padding: 6px 13px;
+      padding: rem(7) rem(13);
       color: #fff;
-      font-size: 10px;
+      font-size: rem(12);
       font-weight: 400;
       border-radius: 30px;
 
@@ -59,7 +62,7 @@ header {
 
   .full-nav {
     height: 100%;
-    margin-right: 210px;
+    margin-right: rem(240);
     display: block;
   }
 
@@ -69,9 +72,15 @@ header {
   }
 
   &.small {
-    height: 70px;
+    height: rem(80);
     padding: 0 6% 0 0;
     background: $bg-color;
+    box-shadow: 0px 1px 12px 0px rgba(0, 1, 1, 0.35);
+
+    object {
+      @include transition(visibility 0s 0s linear);
+      visibility: hidden;
+    }
 
     .navigation {
       @include size(20% 100%);
@@ -97,23 +106,14 @@ header {
       padding: 0 6% 0 2%;
       float: left;
       color: #fff;
-      h3{
+
+      h3 {
         @include vertical-align;
         float: left;
         margin: 0;
         font-weight: 500;
         font-size: rem(20);
         text-transform: uppercase;
-      }
-      .call-us{
-        height: 80%;
-      }
-      .call-icon{
-        background-position: 50% 50%;
-      }
-      .number{
-        top: 50%;
-        transform: translateY(-50%);
       }
     }
 
@@ -126,7 +126,7 @@ header {
     }
 
     .number {
-      bottom: 20px;
+      bottom: rem(23);
     }
 
     .full-nav,
@@ -141,7 +141,7 @@ header {
 }
 
 .call-us {
-  @include size(210px 80px);
+  @include size(rem(240) rem(91));
   background: $bg-color2;
   float: right;
   border-radius: 0px 0px 15px 15px;
@@ -163,22 +163,23 @@ header {
 
     p {
       color: $bg-color;
-      font-size: 13px;
+      font-size: rem(15);
       font-weight: 500;
     }
   }
 }
 
 .number {
-  @include position(absolute, null null 15px null);
+  @include position(absolute, null null rem(17) null);
   color: #fff;
-  font-size: 14px;
+  font-size: rem(18);
+  font-weight: 500;
 }
 
 
 .offer {
   width: 100%;
-  padding: 10% 15%;
+  padding: 11.5% 15% 12%;
   background: url("/img/vector-bg.png") no-repeat;
   background-size: cover;
   background-position: center center;
@@ -188,7 +189,8 @@ header {
 
   h5 {
     color: #eaebed;
-    font-size: 24px;
+    font-size: rem(28);
+    line-height: rem(32);
   }
 
   p {
@@ -201,8 +203,11 @@ header {
   }
 
   .leave-offer {
-    @extend .orange;
-    bottom: 15%;
+    bottom: 12%;
+    padding: rem(18) 0 rem(20);
+    font-size: rem(21);
+    font-weight: 500;
+    width: rem(347);
   }
 }
 
@@ -215,15 +220,32 @@ main {
   text-align: center;
   color: #fff;
   padding: 3%;
-  background: url("/img/footer-logo.png") no-repeat, url("/img/contact-us-bg.png");
-  background-position: 25% 50%;
+  background: url("/img/contact-us-bg.png");
+  background-position: center center;
+  position: relative;
+
+  &:after {
+    @include position(absolute, rem(33) null null 14.1%);
+    @include size(rem(121) rem(119));
+    display: block;
+    content: '';
+    background-image: url("/img/footer-logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
 
   h6 {
-    font-size: 24px;
-    line-height: 45px;
+    font-size: rem(22);
+    margin: rem(10) 0 0;
+    line-height: 1;
+    font-weight: 300;
 
     span {
-      font-size: 36px;
+      font-size: rem(34);
+      font-weight: 500;
+      margin: rem(8) 0 0;
+      display: inline-block;
     }
   }
 }
@@ -232,11 +254,11 @@ footer {
   width: 100%;
   background: $bg-footer;
   text-align: center;
-  padding: 10px 0;
+  padding: rem(21) 0;
 
   a {
     color: #fff;
-    font-size: 12px;
+    font-size: rem(12);
     border-right: 1px solid #fff;
     padding: 0 10px;
 

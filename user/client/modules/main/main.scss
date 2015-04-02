@@ -1,22 +1,13 @@
 @import 'client/scss/all';
 
-.slogan-box{
+.slogan-box {
   width: 100%;
   height: rem(760);
-  padding: rem(180) rem(150) rem(150);
+  padding: rem(249) rem(150) rem(150);
   position: relative;
   z-index: 9;
   color: #fff;
   text-align: center;
-
-  &:before {
-    @include position(absolute, 0 null null 0);
-    @include size(100%);
-    z-index: -1;
-    content: '';
-    display: block;
-    background: rgba(41, 86, 42, 0.5);
-  }
 
   &:after {
     @include position(absolute, 0 null null 0);
@@ -24,34 +15,37 @@
     z-index: -2;
     content: '';
     display: block;
-    background: url("/img/slogan-bg.png");
+    background: url("/img/agro-bg.jpg");
     background-size: cover;
   }
 
-   h2{
-     margin-top: rem(20);
-     font-size: rem(24);
-     line-height: rem(30);
+  img {
+    width: rem(681);
+  }
 
-     &:after{
-       content: "";
-       display: block;
-       width: rem(100);
-       border-bottom: rem(3) solid #fff;
-       margin: rem(30)auto;
+   h2{
+      margin-top: rem(24);
+      font-size: rem(22);
+      line-height: rem(27);
+
+      &:after{
+        content: "";
+        display: block;
+        width: rem(93);
+        border-bottom: 3px solid #fff;
+        margin: rem(30) auto rem(27);
       }
   }
 
-  h1{
-    font-size: rem(36);
+  h1 {
+    font-size: rem(33);
     font-weight: 500;
     text-shadow: rem(1) rem(2) rem(5) rgba(0, 1, 1, 0.25);
   }
 
-  button{
-    @extend .round;
-    margin-left: rem(-30);
-    bottom: 5%;
+  button {
+    margin-left: rem(-27);
+    bottom: rem(43);
     left: 50%;
   }
 }
@@ -89,9 +83,9 @@
   overflow: hidden;
 
   .title {
-    @include position(absolute, 70px null null 14%);
+    @include position(absolute, 73px null null 15.2%);
     color: #fff;
-    font-size: 32px;
+    font-size: rem(32);
     text-transform: uppercase;
   }
 
@@ -111,7 +105,7 @@
 
  .team{
    width: 100%;
-   padding: rem(80) 14%;
+   padding: rem(80) 16%;
    position: relative;
    background-image: url("/img/assortment-bg.png");
    background-size: cover;
@@ -122,6 +116,7 @@
     border: none;
     left: 0;
     background: none;
+    z-index: 7;
   }
 
   .team-carousel-wrap {

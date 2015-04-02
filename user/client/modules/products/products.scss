@@ -37,7 +37,7 @@
   }
 }
 
-.contacts nav {
+.assortment nav {
   width: 17%;
   float: left;
 }
@@ -155,6 +155,10 @@
     border-top: 1px solid #d0d0d0;;
     color: #29562a;
     padding: 20px;
+
+    table {
+      margin: 0 !important;
+    }
   }
 }
 

@@ -9,6 +9,11 @@
   margin-bottom: rem(20);
   background: #a9c855;
   text-align: center;
+  box-shadow: 2px 3px 9px 0px rgba(0, 1, 1, 0.15);
+
+  .team-carousel & {
+    box-shadow: none;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -63,10 +68,10 @@
       font-weight: 500;
     }
 
-    p {
+    .info {
       width: 80%;
       color: #666;
-      font-size: rem(12);
+      font-size: rem(14);
       line-height: rem(15);
     }
 

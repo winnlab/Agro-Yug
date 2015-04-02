@@ -8,7 +8,7 @@
       {{/with}}
     </nav>
   </div>
-  <div class="contacts assortment">
+  <div class="assortment">
     <nav>
       {{#each categories}}
         <a class="j-link filter-link{{#if $eq _id activeCategory._id}} active{{/if}}" href="{{pathFor 'products' _id=../category._id}}">{{name}}</a>
@@ -25,10 +25,10 @@
           <div class="write-up">
             <div class="fertilizer-description">
               <h3>{{name}}</h3>
-              <p>{{overview}}</p>
+              <p>{{{overview}}}</p>
             </div>
             <div class="clr"></div>
-            <div class="table-info">{{description}}</div>
+            <div class="table-info">{{{description}}}</div>
           </div>
         {{/with}}
       {{else}}
@@ -42,7 +42,7 @@
             <div class="fertilizer-description">
               <h3>{{name}}</h3>
 
-              <p>{{overview}}</p>
+              <p>{{{overview}}}</p>
 
               <a class="read-more">ПОДРОБНЕЕ</a>
 
