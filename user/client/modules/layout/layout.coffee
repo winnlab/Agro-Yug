@@ -13,5 +13,5 @@ Template.layout.events
     tpl.$('header').removeClass 'small'
   'click .leave-offer': (ev) ->
     do ev.preventDefault
-    $('body').addClass 'no-overflow'
-    Blaze.render Template.popUpCoopOffer, document.body
+    UIpopUp.show
+      tmpl: Template.popUpCoopOffer

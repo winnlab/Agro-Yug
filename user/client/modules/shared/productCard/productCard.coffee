@@ -7,6 +7,7 @@ Template.productCard.helpers
 
 Template.productCard.events
   'click .product-details': ->
-    $('body').addClass 'no-overflow'
     pdf = ProductPdf.findOne @pdf
-    Blaze.renderWithData Template.productPopUpPdf, { pdf, name: @name }, document.body
+    UIpopUp.show
+      tmpl: Template.productPopUpPdf
+      data: { pdf, name: @name }

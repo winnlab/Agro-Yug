@@ -1,26 +1,24 @@
 <template name="popUpCoopOffer">
-  <div id="pop-up-offer">
-    <div class="pop-up">
-      <div class="header">
-        <h3>ПРЕДЛОЖЕНИЕ О СТРУДНИЧЕСТВЕ</h3>
-        <button class="close"></button>
-      </div>
-      <form action="" id="cooperation-offer">
-        <div class="description">
-          <p>ОПИСАНИЕ ПРЕДЛОЖЕНИЯ</p>
-          <textarea name="offer" type="text"></textarea>
-        </div>
-        <div class="ur-info">
-          <p>ИНФОРМАЦИЯ О ВАС</p>
-          <input name="name" type="text" placeholder="Имя Фамилия" required="">
-          <input name="company" type="text" placeholder="Компания">
-          <input name="situation" type="text" placeholder="Должность">
-          <input name="phone" type="text" placeholder="Номер +3(000) 000 00 00" pattern="^\+?(?:[0-9]??).{5,14}[0-9]$">
-          <input name="email" type="email" placeholder="E-mail" pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" required="">
-          <button type="submit" class="send">ОТПРАВИТЬ</button>
-        </div>
-        <div class="clr"></div>
-      </form>
+  <div class="pop-up-offer">
+    <div class="header">
+      <h3>ПРЕДЛОЖЕНИЕ О СТРУДНИЧЕСТВЕ</h3>
+      <button class="close"></button>
     </div>
+    <form action="" id="cooperation-offer">
+      <div class="description">
+        <p>ОПИСАНИЕ ПРЕДЛОЖЕНИЯ</p>
+        <textarea name="offer" type="text"></textarea>
+      </div>
+      <div class="ur-info">
+        <p>ИНФОРМАЦИЯ О ВАС</p>
+        <input name="name" type="text" placeholder="Имя Фамилия" required="">
+        <input name="company" type="text" placeholder="Компания">
+        <input name="situation" type="text" placeholder="Должность">
+        <input name="phone" type="text" placeholder="Номер +3(000) 000 00 00" pattern="^\+?(?:[0-9]??).{5,14}[0-9]$">
+        <input name="email" type="email" placeholder="E-mail" pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" required="">
+        <button type="submit" class="send">ОТПРАВИТЬ</button>
+      </div>
+      <div class="clr"></div>
+    </form>
   </div>
 </template>

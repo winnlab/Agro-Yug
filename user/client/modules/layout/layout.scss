@@ -250,23 +250,17 @@ footer {
   }
 }
 
-#pop-up-offer {
-  @include position(fixed, 0 null null 0);
-  @include size(100%);
-  z-index: 15;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.7);
 
-  .pop-up {
-    width: 855px;
-    height: 617px;
-    border-radius: 10px;
-    background-color: #eaebed;
-    background-image: url("../img/pop-up-bg1.png");
-    margin: 40px auto;
-    overflow: hidden;
-  }
-  .pop-up h3 {
+.pop-up-offer {
+  width: 855px;
+  height: 617px;
+  border-radius: 10px;
+  background-color: #eaebed;
+  background-image: url("../img/pop-up-bg1.png");
+  margin: 40px auto;
+  overflow: hidden;
+
+  h3 {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -276,14 +270,15 @@ footer {
     text-align: center;
     text-shadow: 1px 2px 5px rgba(0, 1, 1, 0.35);
   }
-  .pop-up p {
+
+  p {
     color: #797979;
     font-size: 1.125em;
     font-weight: 700;
     text-align: left;
     margin-bottom: 20px;
   }
-  .pop-up .header {
+  .header {
     width: 100%;
     height: 65px;
     padding: 15px;
@@ -292,68 +287,60 @@ footer {
     background-size: cover;
     background-repeat: no-repeat;
   }
-  .pop-up .header .close {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-image: url("../img/close.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    right: 20px;
+  .close {
+    @include transform(translateY(-50%));
+    @include position(absolute, 50% 20px null null);
+    @include size(20px);
+    background: {
+      image: url("/img/close.svg");
+      repeat: no-repeat;
+      size: 20px 20px;
+    }
   }
-  .pop-up .description, .pop-up .assortment .column .description1, .assortment .column .pop-up .description1, .pop-up .contacts .column .description1, .contacts .column .pop-up .description1, .pop-up .review .column .description1, .review .column .pop-up .description1 {
+  .description {
     width: 58%;
     height: 552px;
     background: #eaebed;
     float: left;
     padding: 20px;
     box-shadow: 3px 5px 11px 0px rgba(0, 1, 1, 0.25);
+
+    textarea {
+      @include size(100% 460px);
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #d7d7d7;
+      box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25);
+      resize: none;
+      line-height: 25px;
+      outline: none;
+    }
   }
-  .pop-up .description textarea, .pop-up .assortment .column .description1 textarea, .assortment .column .pop-up .description1 textarea, .pop-up .contacts .column .description1 textarea, .contacts .column .pop-up .description1 textarea, .pop-up .review .column .description1 textarea, .review .column .pop-up .description1 textarea {
-    width: 100%;
-    height: 460px;
-    background-color: #d7d7d7;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25);
-    resize: none;
-    padding: 15px;
-    line-height: 25px;
-  }
-  .pop-up .description textarea:focus, .pop-up .assortment .column .description1 textarea:focus, .assortment .column .pop-up .description1 textarea:focus, .pop-up .contacts .column .description1 textarea:focus, .contacts .column .pop-up .description1 textarea:focus, .pop-up .review .column .description1 textarea:focus, .review .column .pop-up .description1 textarea:focus {
-    outline: none;
-  }
-  .pop-up .ur-info {
-    width: 42%;
-    height: 552px;
+  .ur-info {
+    @include size(42% 552px);
     padding: 20px 30px;
     background: rgba(234, 235, 237, 0.7);
     float: left;
+
+    input {
+      @include size(100% 60px);
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #d7d7d7;
+      box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25);
+      color: #797979;
+      font-size: 1em;
+      font-weight: 400;
+      text-align: left;
+      text-indent: 25px;
+      outline: none;
+    }
   }
-  .pop-up .ur-info input {
-    width: 100%;
-    height: 60px;
-    background-color: #d7d7d7;
-    border: none;
-    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255, 0.25);
-    border-radius: 10px;
-    color: #797979;
-    font-size: 1em;
-    font-weight: 400;
-    text-align: left;
-    margin-bottom: 20px;
-    text-indent: 25px;
-  }
-  .pop-up .ur-info input:focus {
-    outline: none;
-  }
-  .pop-up .send {
-    width: 100%;
-    height: 60px;
+
+  .send {
+    @include size(100% 60px);
     border-radius: 10px;
     background-color: #f6a61d;
     box-shadow: 3px 5px 10px 0px rgba(0, 1, 1, 0.2);
