@@ -1,6 +1,6 @@
 callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
   unless collection is 'Categories' or collection is 'Products'
-    Router.go "/admin/#{collection}"
+    return Router.go "/admin/#{collection}"
   Router.go "/admin/mode/categories" +
     if currentDoc?.categoryId then "/#{currentDoc?.categoryId}" else ""
   return false
