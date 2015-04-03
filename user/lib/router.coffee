@@ -13,6 +13,11 @@ if Meteor.isClient
     language = do Router.getLanguage
     TAPi18n.setLanguage language if TAPi18n.getLanguage() isnt language
     do @next
+  Router.onBeforeAction ->
+    $('html,body').animate
+      scrollTop: 0
+    , 300
+    do @next
 
 Router.route('pdfviewer', {
   path: '/api/pdfviewer/:_id'

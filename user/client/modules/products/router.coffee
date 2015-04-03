@@ -9,5 +9,5 @@ Router.route 'products',
     ]
   data: ->
     category: Categories.findOne _id: @params._id
-    categories: Categories.find categoryId: @params._id
-    productList: Products.find categoryId: @params._id
+    categories: Categories.find categoryId: @params._id, { sort: position: -1 }
+    productList: Products.find categoryId: @params._id, { sort: position: -1 }
