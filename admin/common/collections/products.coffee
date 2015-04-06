@@ -13,7 +13,7 @@ Products.attachI18nSchema
   name:
     type: String
     label: 'Название'
-    max: 30
+    max: 60
     i18n: true
   overview:
     type: String
@@ -24,7 +24,7 @@ Products.attachI18nSchema
       afFieldInput:
         type: 'summernote',
         class: 'editor'
-        height: 200
+        height: 125
   description:
     type: String
     optional: true
@@ -34,7 +34,7 @@ Products.attachI18nSchema
       afFieldInput:
         type: 'summernote',
         class: 'editor'
-        height: 200
+        height: 400
   img:
     label: 'Изображение'
     type: String

@@ -32,11 +32,15 @@ Categories.attachI18nSchema
   name:
     type: String
     label: 'Название'
-    max: 50
+    max: 60
     i18n: true
   overview:
     type: String
     label: 'Коротко описание'
+    optional: true
+    custom: ->
+      if not @field('children').value and not @value
+        return 'required'
     i18n: true
     autoform:
       afFieldInput:
@@ -46,6 +50,10 @@ Categories.attachI18nSchema
   description:
     type: String
     label: 'Описание'
+    optional: true
+    custom: ->
+      if not @field('children').value and not @value
+        return 'required'
     i18n: true
     autoform:
       afFieldInput:

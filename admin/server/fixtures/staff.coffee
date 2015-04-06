@@ -1,5 +1,7 @@
 insertStaff = ->
   return if do Staff.find().count > 0
+  path = Npm.require 'path'
+  folder = path.normalize "#{__meteor_bootstrap__.serverDir}/../web.browser/app/img"
   staff = [
     firstName: 'Петро'
     secondName: 'Порошенко'
@@ -20,7 +22,7 @@ insertStaff = ->
     person.info = '<p>Должность: директор</p><p>Опыт работы: 6 лет.</p><p>Email: email@email.com</p>'
 
     if person.photo
-      person.photo = StaffPhoto.insert("#{process.env.PWD}/public/img/#{person.photo}")._id
+      person.photo = StaffPhoto.insert("#{folder}/#{person.photo}")._id
 
     Staff.insert person
 

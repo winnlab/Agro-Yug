@@ -1,14 +1,7 @@
-insertCategories = (data, img, cb) ->
-  if data.categoryId
-    data.categoryId = Categories.findOne( name: data.categoryId )._id
-  if img
-    CategoryImg.insert "#{process.env.PWD}/public/img/#{img}", (err, result) ->
-      data.img = result._id
-      Categories.insert data, cb
-  else
-    Categories.insert data, cb
-
 insertAssortment = ->
+  return if do Categories.find().count > 0
+  path = Npm.require 'path'
+  folder = path.normalize "#{__meteor_bootstrap__.serverDir}/../web.browser/app/img"
   categories = [
     name: 'Пестициды'
     img: 'card1.png'
@@ -52,16 +45,17 @@ insertAssortment = ->
     children: false
   ]
 
-  unless do Categories.find().count
-    i = -1
-    do processCategory = ->
-      i += 1
-      return if i > categories.length - 1
-      category = categories[i]
-      category.children = true if category.children isnt false
-      category.position = categories.length - i
-      category.overview = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nemo.'
-      category.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore deleniti numquam iste dolores sit eum explicabo labore possimus fugiat ab!'
-      insertCategories category, category.img, processCategory
+  _.each categories, (category, i) ->
+    category.position =  categories.length - i
+    category.children = true if category.children isnt false
+    category.overview = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, nemo.'
+    category.description = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore deleniti numquam iste dolores sit eum explicabo labore possimus fugiat ab!'
+
+    if category.categoryId
+      category.categoryId = Categories.findOne( name: category.categoryId )._id
+    if category.img
+      category.img = CategoryImg.insert("#{folder}/#{category.img}")._id
+
+    Categories.insert category
 
 do insertAssortment
