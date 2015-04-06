@@ -28,7 +28,7 @@ Template.productsText.events
 
 Template.productsText.onCreated ->
   activeCategory.set @data.categories.fetch()[0]
-
+  product.set undefined
   @autorun ->
     Meteor.subscribe 'products', categoryId: activeCategory.get()._id
 

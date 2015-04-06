@@ -88,16 +88,22 @@ header {
       padding: rem(10);
       padding-left: rem(30);
       float: left;
-      background-image: url("/img/logo.png");
-      background-repeat: no-repeat;
-      background-position: 90% 50%;
 
       .menu {
          @include vertical-align;
-         @include size(rem(30) rem(30));
+         @include size(rem(30));
          background: url("/img/menu-button.svg") no-repeat;
          background-position: center;
          background-size: cover;
+      }
+
+      .logo-min {
+        @include size(42px 45px);
+        margin-top: 4px;
+        display: block;
+        float: right;
+        background-image: url("/img/logo.png");
+        background-repeat: no-repeat;
       }
     }
 
@@ -179,7 +185,7 @@ header {
 
 .offer {
   width: 100%;
-  padding: 11.5% 15% 12%;
+  padding: 14.5% 15% 17%;
   background: url("/img/vector-bg.png") no-repeat;
   background-size: cover;
   background-position: center center;
@@ -203,7 +209,7 @@ header {
   }
 
   .leave-offer {
-    bottom: 12%;
+    bottom: 15%;
     padding: rem(18) 0 rem(20);
     font-size: rem(21);
     font-weight: 500;

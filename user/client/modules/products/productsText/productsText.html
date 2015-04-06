@@ -2,8 +2,8 @@
   <div class="chain">
     <nav>
       <a href="{{pathFor 'assortment'}}">Ассортимент /</a>
-      <a href="{{pathFor 'products' _id=category._id}}">{{category.name}} / </a>
       {{#with activeCategory}}
+        <a href="{{pathFor 'products' _id=../category._id}}" class="j-link">{{../category.name}} / </a>
         <a href="{{pathFor 'products' _id=../category._id}}" class="j-link">{{activeCategory.name}}</a>
       {{/with}}
     </nav>
