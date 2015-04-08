@@ -20,6 +20,11 @@ Categories.sortByLvl = (isAll = false) ->
   sortIt categories, 0, 1
   return result
 
+customTextRequired = ->
+  # console.log @field('categoryId').value
+  if @field('categoryId').value and not @field('children').value and not @value
+    return 'required'
+
 Categories.attachI18nSchema
   categoryId:
     type: String
@@ -38,9 +43,7 @@ Categories.attachI18nSchema
     type: String
     label: 'Коротко описание'
     optional: true
-    custom: ->
-      if not @field('children').value and not @value
-        return 'required'
+    custom: customTextRequired
     i18n: true
     autoform:
       afFieldInput:
@@ -51,9 +54,7 @@ Categories.attachI18nSchema
     type: String
     label: 'Описание'
     optional: true
-    custom: ->
-      if not @field('children').value and not @value
-        return 'required'
+    custom: customTextRequired
     i18n: true
     autoform:
       afFieldInput:
