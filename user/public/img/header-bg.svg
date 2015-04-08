@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="1700px" height="143px"
+  width="100%" height="100%"
   viewBox="0 0 1700 143"
 >
   <filter id="filter0" x="-0.59%" y="-7.69%" width="101.18%" height="117.69%" filterUnits="objectBoundingBox">

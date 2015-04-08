@@ -71,11 +71,18 @@ Categories.attachI18nSchema
     label: 'Тип продуктов'
     allowedValues: [ 'text', 'pdf' ]
     autoform:
-      noselect: true
-      options: [
-        { label: "Продукты с описанием", value: "text" }
-        { label: "Продукты с pdf", value: "pdf" }
-      ]
+      options: ->
+        opts = [
+          { label: "Продукты с описанием", value: "text" }
+          { label: "Продукты с pdf", value: "pdf" }
+        ]
+        parentCategoryId = Router.current().params?._id
+        parentCategory = Categories.findOne parentCategoryId
+        if parentCategoryId and parentCategory
+          _.map opts, (option) ->
+            option.selected = true if option.value is parentCategory.type
+            return option
+        return opts
   children:
     type: Boolean
     label: 'Вложенные категории'
@@ -83,6 +90,8 @@ Categories.attachI18nSchema
     type: Number
     label: 'Позиция'
     autoValue: collectionAutoPosition Categories
+    autoform:
+      placeholder: 'Оставить пустым для автозаполнения'
 
 @CategoryImg = new FS.Collection 'categoryImg', Schemas.CategoryImg
 
