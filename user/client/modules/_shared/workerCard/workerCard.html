@@ -1,0 +1,18 @@
+<template name="workerCard">
+  <div class="worker crsl-item">
+    <div class="worker-photo{{#if photo}} has-photo{{/if}}">
+      {{#if photo}}
+        <img src="{{getPhoto photo}}" alt="{{secondName}} {{firstName}}" class="photo" />
+      {{else}}
+        <img src="img/worker.svg" alt="" />
+      {{/if}}
+    </div>
+    <div class="description">
+      <h4>{{secondName}} {{firstName}}</h4>
+      <div class="info">
+        {{{info}}}
+      </div>
+      <button class="read"></button>
+    </div>
+  </div>
+</template>

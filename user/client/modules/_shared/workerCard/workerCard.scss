@@ -1,0 +1,87 @@
+@import 'client/scss/all';
+
+.worker {
+  @include size(31% rem(434));
+  position: relative;
+  border-radius: rem(15);
+  float: left;
+  margin-right: 2.3%;
+  margin-bottom: rem(20);
+  background: #a9c855;
+  text-align: center;
+  box-shadow: 2px 3px 9px 0px rgba(0, 1, 1, 0.15);
+
+  .team-carousel & {
+    box-shadow: none;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+
+  .worker-photo {
+    @include size(100% rem(340));
+    padding: 10% 20%;
+    border-radius: rem(15) rem(15) 0 0;
+
+    &.has-photo {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .description {
+    @include size(100% rem(100));
+    padding: rem(20);
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 rem(15) rem(15);
+    background: #efefef;
+    text-align: left;
+    transition: 0.3s;
+
+    p + p {
+      visibility: hidden;
+      line-height: rem(25);
+      transition: 0.3s ease;
+    }
+
+    &:hover {
+      height: rem(150);
+
+      p + p {
+        visibility: visible;
+      }
+    }
+
+
+    h4 {
+      width: 80%;
+      margin-bottom: rem(18);
+      color: #29562a;
+      font-size: rem(18);
+      font-weight: 500;
+    }
+
+    .info {
+      width: 80%;
+      color: #666;
+      font-size: rem(14);
+      line-height: rem(15);
+    }
+
+    .read {
+      @include size(rem(55) rem(55));
+      border-radius: rem(55) 0 rem(15);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: url("/img/read.svg") no-repeat 60% 60%, #f6a61d;
+    }
+  }
+}
