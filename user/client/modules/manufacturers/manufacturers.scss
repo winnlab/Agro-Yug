@@ -4,8 +4,7 @@
     height: auto;
 
     .photo-box {
-      @include position(absolute, 50% null null 14%);
-      @include transform(translateY(-50%));
+      @include position(absolute, 9% null null 14%);
       width: 33%;
       margin-top: 0;
     }
