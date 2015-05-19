@@ -3,11 +3,19 @@
 .slogan-box {
   width: 100%;
   height: rem(760);
+  min-height: 33.5rem;
   padding: rem(249) rem(150) rem(150);
   position: relative;
   z-index: 9;
   color: #fff;
   text-align: center;
+  overflow: hidden;
+
+  .text-wrap {
+    @include position(absolute, 50% null null 50%);
+    @include transform(translateX(-50%) translateY(-50%));
+    z-index: 1;
+  }
 
   &:after {
     @include position(absolute, 0 null null 0);
@@ -15,8 +23,7 @@
     z-index: -2;
     content: '';
     display: block;
-    background: url("/img/agro-bg.jpg");
-    background-size: cover;
+    background-color: rgba(41, 86, 42, 0.5);
   }
 
   img {
@@ -161,4 +168,16 @@
     margin-top: rem(75);
 
   }
+}
+
+#bg-video {
+  @include position(absolute, 50% null null 50%);
+  @include transform(translateX(-50%) translateY(-50%));
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background: url("/img/agro-bg.jpg") no-repeat;
+  background-size: cover;
 }
