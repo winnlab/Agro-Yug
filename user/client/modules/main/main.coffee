@@ -11,7 +11,10 @@ Template.main.onRendered ->
     pager: false
 
   getScreens = ->
-    $('.slogan-box').outerHeight do $(window).height - 4.375 * $('body').css('font-size').slice 0, -2
+    screenHeight = do $(window).height - 4.375 * $('body').css('font-size').slice 0, -2
+    $('.slogan-box').outerHeight screenHeight
+    $('.assortment').outerHeight screenHeight
+    $('.map').outerHeight screenHeight
     screens = []
     $('.j-screen').each ->
       $self = $(@)
