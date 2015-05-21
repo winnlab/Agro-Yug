@@ -1,5 +1,10 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+</head>
+
 <template name="AdminLayout">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 {{#if AdminConfig}}
  {{#if isInRole 'admin'}}
   <div class="admin-layout">
@@ -15,17 +20,17 @@
             </h1>
             <div class="header-right">
               <ol class="breadcrumb">
-                <li><a href="/admin/">{{_ 'dashboard'}}</a></li>
+                <li><a href="/">{{_ 'dashboard'}}</a></li>
                 {{#if $.Session.get 'admin_collection'}}
-                <li><a href="/admin/{{admin_collection}}/">{{adminCollectionLabel admin_collection_name}}</a></li>
+                <li><a href="/{{admin_collection}}/">{{adminCollectionLabel admin_collection_name}}</a></li>
                 {{/if}}
 
                 {{#if $.Session.equals 'admin_collection_page' 'new'}}
-                <li><a href="/admin/{{admin_collection}}/new">{{_ 'new'}}</a></li>
+                <li><a href="/{{admin_collection}}/new">{{_ 'new'}}</a></li>
                 {{/if}}
 
                 {{#if $.Session.equals 'admin_collection_page' 'edit'}}
-                <li><a href="/admin/{{admin_collection}}/edit">{{_ 'edit'}}</a></li>
+                <li><a href="/{{admin_collection}}/edit">{{_ 'edit'}}</a></li>
                 {{/if}}
 
 

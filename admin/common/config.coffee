@@ -1,7 +1,7 @@
 callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
   unless collection is 'Categories' or collection is 'Products'
-    return Router.go "/admin/#{collection}"
-  Router.go "/admin/mode/categories" +
+    return Router.go "/#{collection}"
+  Router.go "/mode/categories" +
     if insertDoc?.categoryId then "/#{insertDoc?.categoryId}" else ""
   return false
 
@@ -31,7 +31,7 @@ callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
     Categories:
       label: 'Ассортимент'
       showAside: false
-      url: '/admin/mode/categories'
+      url: '/mode/categories'
       tableColumns: [
         { label: 'Позиция', name: 'position' }
         { label: 'Название', name: 'name' }
@@ -46,4 +46,4 @@ callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
       showAside: false
       showWidget: false
 
-AdminDashboard.addSidebarItem 'Ассортимент', AdminDashboard.path('/mode/categories'), { icon: 'list' }
+AdminDashboard.addSidebarItem 'Ассортимент', AdminDashboard.path('mode/categories'), { icon: 'list' }
