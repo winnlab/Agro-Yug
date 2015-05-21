@@ -19,6 +19,8 @@ Template.main.onRendered ->
     $('.j-screen').each ->
       $self = $(@)
       top = $self.offset().top - 70
+      if $self.hasClass 'offer'
+        top += 300
       screens.push
         selector: $self
         top: top

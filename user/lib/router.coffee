@@ -1,5 +1,6 @@
 Router.configure
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
   i18n:
     defaultLanguage: Meteor.settings.public.lng
     langCodeForDefaultLanguage: false
