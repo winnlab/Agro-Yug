@@ -1,6 +1,5 @@
 Router.configure
   layoutTemplate: 'layout'
-  loadingTemplate: 'loading'
   i18n:
     defaultLanguage: Meteor.settings.public.lng
     langCodeForDefaultLanguage: false
@@ -15,11 +14,16 @@ if Meteor.isClient
     TAPi18n.setLanguage language if TAPi18n.getLanguage() isnt language
     do @next
   Router.onBeforeAction ->
+    $('#preloader').show()
     unless Router.current().url.indexOf 'products' > -1
       $('html,body').animate
         scrollTop: 0
       , 300
     do @next
+  Router.onAfterAction ->
+    Meteor.setTimeout ->
+      $('#preloader').hide()
+    , 300
 
 Router.route('pdfviewer', {
   path: '/api/pdfviewer/:_id'

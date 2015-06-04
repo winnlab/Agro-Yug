@@ -1,11 +1,12 @@
 @import "client/scss/all";
 
 .preloader-wrap {
-  @include size(100% rem(700));
-  position: relative;
+  @include position(fixed, 0 0 0 0);
+  @include size(100%);
   background-image: url("/img/assortment-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 10;
 
   img {
     @include position(absolute, 50% null null 50%);

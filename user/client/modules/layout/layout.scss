@@ -1,12 +1,19 @@
 @import 'client/scss/all';
 @import 'client/scss/reset';
 
+html, body {
+  height: 100%;
+}
+main {
+  min-height: 100%;
+}
+
 header {
   @include transition(height 0.3s ease-in-out);
   @include size(100% rem(105));
   @include position(fixed, 0 null null null);
   padding: 0 5.75% 0 14.5%;
-  z-index: 10;
+  z-index: 12;
   background: #3d7a41;
 
   object {
