@@ -3,7 +3,7 @@
 .preloader-wrap {
   @include position(fixed, 0 0 0 0);
   @include size(100%);
-  background-image: url("/img/assortment-bg.png");
+  background-color: #599255;
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 10;

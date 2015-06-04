@@ -13,17 +13,18 @@ if Meteor.isClient
     language = do Router.getLanguage
     TAPi18n.setLanguage language if TAPi18n.getLanguage() isnt language
     do @next
+
   Router.onBeforeAction ->
-    $('#preloader').show()
-    unless Router.current().url.indexOf 'products' > -1
-      $('html,body').animate
-        scrollTop: 0
-      , 300
+    $('#preloader').fadeIn 100
     do @next
-  Router.onAfterAction ->
-    Meteor.setTimeout ->
-      $('#preloader').hide()
+  Router.onBeforeAction ->
+    $('html,body').animate
+      scrollTop: 0
     , 300
+    do @next
+  , except: ['products']
+  Router.onAfterAction ->
+    $('#preloader').stop(true, true).fadeOut 300
 
 Router.route('pdfviewer', {
   path: '/api/pdfviewer/:_id'
