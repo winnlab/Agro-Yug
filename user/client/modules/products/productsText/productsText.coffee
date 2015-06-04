@@ -18,20 +18,26 @@ Template.productsText.events
   'click .j-link': (ev) ->
     do ev.preventDefault
     activeCategory.set @
-    product.set undefined
+    Router.go 'products', _id: Router.current().params._id
   'click .read-more': (ev) ->
     do ev.preventDefault
     $('html,body').animate
       scrollTop: productScrollTop
     , 300
-    product.set @
+    Router.go 'products', _id: Router.current().params._id, productId: @_id
 
 Template.productsText.onCreated ->
-  activeCategory.set @data.categories.fetch()[0]
+  unless Session.get 'products.productId'
+    activeCategory.set @data.categories.fetch()[0]
   product.set undefined
   @autorun ->
-    Meteor.subscribe 'products', categoryId: activeCategory.get()._id
-
+    productId = Session.get 'products.productId'
+    if productId
+      productRecord = Products.findOne _id: productId
+      product.set productRecord
+      activeCategory.set Categories.findOne _id: productRecord.categoryId
+    else
+      product.set null
 
 Template.productsText.onRendered ->
   do getProductScrollTop

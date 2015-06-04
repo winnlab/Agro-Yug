@@ -15,9 +15,10 @@ if Meteor.isClient
     TAPi18n.setLanguage language if TAPi18n.getLanguage() isnt language
     do @next
   Router.onBeforeAction ->
-    $('html,body').animate
-      scrollTop: 0
-    , 300
+    unless Router.current().url.indexOf 'products' > -1
+      $('html,body').animate
+        scrollTop: 0
+      , 300
     do @next
 
 Router.route('pdfviewer', {

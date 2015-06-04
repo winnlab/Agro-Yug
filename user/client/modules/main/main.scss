@@ -99,6 +99,7 @@
 
 .map {
   @include size(100% rem(840));
+  min-height: rem(590);
   position: relative;
   background-image: url('/img/map-bg.png');
   background-size: cover;

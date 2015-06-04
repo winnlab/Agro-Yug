@@ -14,13 +14,13 @@
     position: relative;
 
     .card-photo {
-      height:rem(548);
+      height: 100%;
       background-image: url("/img/card5.png");
     }
   }
 
   &-photo {
-    @include size(100% rem(280));
+    @include size(100%);
     background-image: url("/img/card1.png");
     background-repeat: no-repeat;
     background-size: cover;
