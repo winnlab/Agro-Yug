@@ -1,3 +1,9 @@
+FS.debug = true
+FS.HTTP.setBaseUrl '/files'
+FS.HTTP.setHeadersForGet [
+  ['Cache-Control', 'public, max-age=31536000']
+]
+
 callbackHooks = (collection, insertDoc, updateDoc, currentDoc) ->
   unless collection is 'Categories' or collection is 'Products'
     return Router.go "/#{collection}"

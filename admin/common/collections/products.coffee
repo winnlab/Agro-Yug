@@ -38,6 +38,7 @@ Products.attachI18nSchema
   img:
     label: 'Изображение'
     type: String
+    optional: true
     autoform:
       afFieldInput:
         type: 'fileUpload'

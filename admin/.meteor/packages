@@ -27,5 +27,4 @@ yogiben:autoform-file
 cfs:standard-packages
 cfs:filesystem
 cfs:graphicsmagick
-cfs:ejson-file
 reywood:publish-composite
