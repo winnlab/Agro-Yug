@@ -4,3 +4,7 @@ Router.route 'team',
     Meteor.subscribe 'staff'
   data: ->
     workers: Staff.find {}, sort: position: -1
+  onBeforeAction: ->
+    showPreloader()
+    scrollToTop()
+    @next()

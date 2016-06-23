@@ -14,15 +14,6 @@ if Meteor.isClient
     TAPi18n.setLanguage language if TAPi18n.getLanguage() isnt language
     do @next
 
-  Router.onBeforeAction ->
-    $('#preloader').fadeIn 100
-    do @next
-  Router.onBeforeAction ->
-    $('html,body').animate
-      scrollTop: 0
-    , 300
-    do @next
-  , except: ['products']
   Router.onAfterAction ->
     $('#preloader').stop(true, true).fadeOut 300
 

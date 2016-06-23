@@ -11,6 +11,7 @@ Router.route 'products',
     categories: Categories.find categoryId: @params._id, { sort: position: -1 }
     productList: Products.find categoryId: @params._id, { sort: position: -1 }
   onBeforeAction: ->
+    showPreloader()
     if @params.productId
       Session.set 'products.productId', @params.productId
     else

@@ -1,0 +1,7 @@
+.build*
+.idea*
+martino:iron-router-i18n.iml
+/packages
+smart.lock
+.npm*
+.versions
